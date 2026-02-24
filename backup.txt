@@ -1,0 +1,78 @@
+<?php
+include 'connectionweb.php';
+?><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="adminc.css">
+  <link rel="icon" href="aaaaaaaaaa (1).png" />
+</head><?php
+include 'connectionweb.php';
+?>
+
+
+<nav class="navbar">
+  <ul class="nav-left">
+    <li><img src="navlo-1.png" alt="Site Logo" /></li>
+    <li><a href="home.php">Home</a></li>
+    <li><a href="about.php">About</a></li>
+    <li><a href="contact.php">Contact</a></li>
+    <li><a href="login.php">Login</a></li>
+    <li><a href="sign.php">Sign Up</a></li>
+     <li><a href="admin.php">Admin Dashboard</a></li>
+    <li><a href="student.php">Student Dashboard</a></li> 
+  </ul>
+</nav>
+ <div class="container">
+        <section class="content-box">
+            
+            <div class="image">
+                <img src=abpic.jpg">
+            </div>
+            <h2>Mission</h2>
+            <p>
+                Regis Marie College gives students with high-quality
+                educational opportunities and support services that
+                lead to degrees, transfers, certifications, and basic 
+                skills mastery. In a safe, accessible, and inexpensive 
+                learning environment, the institution promotes academic 
+                and career success by encouraging critical thinking, 
+                effective communication, creativity, and cultural 
+                understanding. We embrace equality and accountability 
+                in serving the needs of our demographically student 
+                community through measurable learning outcomes, ethical 
+                data-driven decisions, and student performance.
+            </p>
+            <br><br><br><br>
+        </section>
+
+
+        <section class="content-box">
+            <h2>Vision</h2>
+            <p>
+                Regis Marie College is committed to providing great 
+                educational experiences that are responsive to our 
+                students' needs and that enable them to meet and 
+                exceed challenges as active participants in 
+                influencing the future.
+            </p>
+            <br><br><br>
+        </section>
+</div>
+<div>
+        <section class="content-box">
+            <h3>Why Choose Our College?</h3>
+            <p>
+                Provide a solid foundation through a sound academics offering that will produce graduates who are 
+                proficient and skillful in their chosen field and who are ready to share their expertise toward the 
+                country’s dream of being a developed nation.
+            </p>
+             <br><br><br><br>
+        </section>
+
+
+    </div>
+  
+</body>
+</html>
