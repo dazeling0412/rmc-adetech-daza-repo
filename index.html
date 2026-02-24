@@ -1,45 +1,363 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Button Alert Demo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Interactive Space | Modern UI</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            margin: 10px;
-            cursor: pointer;
-            background-color: #4CAF50;
+            background-color: #0A192F; /* Navy blue */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: white;
-            border: none;
-            border-radius: 5px;
+            position: relative;
+            overflow-x: hidden;
         }
-        button:hover {
-            background-color: #45a049;
+
+        /* Animated stars background */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: transparent;
+        }
+
+        .star {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Main container */
+        .container {
+            background: rgba(10, 25, 47, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 181, 173, 0.2);
+            border-radius: 30px;
+            padding: 50px;
+            width: 90%;
+            max-width: 700px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Header styles */
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff, #00B5AD);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 181, 173, 0.3);
+        }
+
+        .subtitle {
+            color: #8892B0;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        /* Stats/Features section */
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .feature-item {
+            flex: 1;
+            min-width: 120px;
+            padding: 20px;
+            background: rgba(0, 181, 173, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 181, 173, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            border-color: #00B5AD;
+        }
+
+        .feature-number {
+            font-size: 2em;
+            color: #00B5AD;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .feature-text {
+            color: #CCD6F6;
+            font-size: 0.9em;
+        }
+
+        /* Button styles - TEAL! */
+        .button-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.1em;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-teal {
+            background: #00B5AD; /* Teal */
+            color: #0A192F;
+            box-shadow: 0 5px 20px rgba(0, 181, 173, 0.4);
+        }
+
+        .btn-teal:hover {
+            background: #00CCC2;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 181, 173, 0.6);
+        }
+
+        .btn-outline-teal {
+            background: transparent;
+            color: #00B5AD;
+            border: 2px solid #00B5AD;
+        }
+
+        .btn-outline-teal:hover {
+            background: #00B5AD;
+            color: #0A192F;
+            transform: scale(1.05);
+        }
+
+        /* Click effect */
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Message display */
+        .message-area {
+            background: rgba(0, 181, 173, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            min-height: 80px;
+            color: #CCD6F6;
+        }
+
+        /* Counter section */
+        .counter-container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .counter {
+            font-size: 3.5em;
+            color: #00B5AD;
+            font-weight: bold;
+            margin: 10px 0;
+            text-shadow: 0 0 20px rgba(0, 181, 173, 0.5);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            color: #4A5A7A;
+            font-size: 0.9em;
+        }
+
+        .footer i {
+            color: #00B5AD;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .btn {
+                padding: 12px 25px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>My Button Alert Demo</h1>
-    
-    <!-- Method 1: Inline alert -->
-    <button onclick="alert('Hello! You clicked the button!')">
-        Click Me (Inline)
-    </button>
-    
-    <!-- Method 2: Using JavaScript function -->
-    <button onclick="showAlert()">
-        Click Me Too!
-    </button>
-    
+    <!-- Animated stars background -->
+    <div class="stars" id="stars"></div>
+
+    <div class="container">
+        <h1>✨ SPACE INTERACTIVE</h1>
+        <div class="subtitle">Experience the future of web interactions</div>
+
+        <!-- Stats/Features -->
+        <div class="features">
+            <div class="feature-item">
+                <div class="feature-number">500+</div>
+                <div class="feature-text">Active Users</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-number">24/7</div>
+                <div class="feature-text">Support</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-number">∞</div>
+                <div class="feature-text">Possibilities</div>
+            </div>
+        </div>
+
+        <!-- TEAL BUTTONS! -->
+        <div class="button-group">
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            <button class="btn btn-teal" onclick="showWelcomeMessage()">
+                🚀 Launch
+            </button>
+            <button class="btn btn-outline-teal" onclick="showSurprise()">
+
+                ⭐ Discover
+            </button>
+        </div>
+
+        <!-- Message display area -->
+        <div class="message-area" id="messageDisplay">
+            Click a button to start your journey...
+        </div>
+
+        <!-- Interactive counter -->
+        <div class="counter-container">
+            <div style="color: #8892B0; margin-bottom: 10px;">SPACE EXPLORATIONS</div>
+            <div class="counter" id="counter">0</div>
+            <button class="btn btn-teal" onclick="incrementCounter()" style="padding: 10px 25px; font-size: 0.9em;">
+                🌟 Explore Universe
+            </button>
+        </div>
+
+        <div class="footer">
+            Made with <i>💙</i> in the digital cosmos
+        </div>
+    </div>
+
     <script>
-        function showAlert() {
-            alert('Button clicked via function!');
+        // Create animated stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = star.style.height = Math.random() * 3 + 1 + 'px';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
         }
+
+        // Message functions
+        function showWelcomeMessage() {
+            const message = document.getElementById('messageDisplay');
+            message.innerHTML = '🚀 Welcome aboard! You\'ve successfully launched into the interactive experience!';
+            message.style.color = '#00B5AD';
+            
+            // Add a little animation
+            message.style.transform = 'scale(1.02)';
+            setTimeout(() => {
+                message.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        function showSurprise() {
+            const messages = [
+                '⭐ You discovered a hidden star!',
+                '🌌 The galaxy is full of possibilities!',
+                '🪐 Welcome to the space station!',
+                '☄️ A shooting star just passed by!',
+                '👾 You found an alien friend!'
+            ];
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            
+            const message = document.getElementById('messageDisplay');
+            message.innerHTML = randomMessage;
+            message.style.color = '#FFD700';
+        }
+
+        // Counter functionality
+        let count = 0;
+        function incrementCounter() {
+            count++;
+            document.getElementById('counter').innerHTML = count;
+            
+            // Get the message area
+            const message = document.getElementById('messageDisplay');
+            
+            // Different messages based on count
+            if (count === 1) {
+                message.innerHTML = '🌍 First exploration! Welcome to Earth\'s orbit!';
+            } else if (count === 5) {
+                message.innerHTML = '🚀 You\'ve reached the moon!';
+            } else if (count === 10) {
+                message.innerHTML = '🪐 You\'re now exploring Mars!';
+            } else if (count === 20) {
+                message.innerHTML = '🌌 You\'ve left the solar system!';
+            } else if (count % 5 === 0) {
+                message.innerHTML = `✨ ${count} explorations completed! Keep going!`;
+            }
+            
+            // Button animation
+            const counter = document.getElementById('counter');
+            counter.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                counter.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        // Initialize stars when page loads
+        createStars();
+
+        // Add some interactive console messages (for developers)
+        console.log('✨ Space Interactive loaded! Click the teal buttons to explore!');
     </script>
 </body>
 </html>
