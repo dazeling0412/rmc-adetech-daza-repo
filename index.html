@@ -10,16 +10,17 @@
             padding: 0;
             box-sizing: border-box;
         }
-        body { 
-	background-color: #0A192F;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	min-height: 100vh;
-	color: white;
-	position: relative;
-	overflow-x: relative;
-	margin: 0;
-	padding: 20px;
-	display: block;
+
+        body {
+            background-color: #0A192F; /* Navy blue */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow-x: hidden;
         }
 
         /* Animated stars background */
@@ -59,7 +60,6 @@
             z-index: 10;
             text-align: center;
             animation: fadeIn 1s ease-out;
-	    margin: 20px auto;
         }
 
         @keyframes fadeIn {
@@ -174,11 +174,9 @@
 
         /* Message display */
         .message-area {
-            background: rgba(0, 181, 173, 0.1);
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
-            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #CCD6F6;
         }
 
@@ -249,14 +247,10 @@
 
         <!-- TEAL BUTTONS! -->
         <div class="button-group">
-            display: flex;
-            align-items: center;
-            justify-content: center;
             <button class="btn btn-teal" onclick="showWelcomeMessage()">
                 🚀 Launch
             </button>
             <button class="btn btn-outline-teal" onclick="showSurprise()">
-
                 ⭐ Discover
             </button>
         </div>
